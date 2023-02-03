@@ -5,7 +5,7 @@ public class CeilingChar {
     public static void main(String[] args) {
 
         char[] arr = { 'a', 'c', 'j' };
-        char target = 'j';
+        char target = 'a';
         System.out.printf("The ceiling of the target exists at %d.", ceilingChar(arr, target));
 
     }
@@ -21,9 +21,7 @@ public class CeilingChar {
         while (start <= end) {
 
             int mid = start + (end - start) / 2;
-            if (target == arr[mid]) {
-                return (mid + 1) % arr.length;
-            } else if (target < arr[mid]) {
+            if (target < arr[mid]) {
                 end = mid - 1;
             } else {
                 start = mid + 1;
