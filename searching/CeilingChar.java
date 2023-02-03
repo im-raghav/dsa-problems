@@ -1,16 +1,16 @@
-// Q -> floor of a number = greatest number smaller than or equal to num.
+// Q -> ceiling of a given target char = smallest char greater than or equal to target.
 package searching;
 
-public class Floor {
+public class CeilingChar {
     public static void main(String[] args) {
 
-        int[] arr = { 2, 4, 6, 8, 9, 12, 15, 18 };
-        int target = 0;
-        System.out.printf("The floor of the target exists at %d.", floor(arr, target));
+        char[] arr = { 'a', 'c', 'j' };
+        char target = 'j';
+        System.out.printf("The ceiling of the target exists at %d.", ceilingChar(arr, target));
 
     }
 
-    static int floor(int[] arr, int target) {
+    static int ceilingChar(char[] arr, char target) {
         int start = 0;
         int end = arr.length - 1;
 
@@ -22,13 +22,13 @@ public class Floor {
 
             int mid = start + (end - start) / 2;
             if (target == arr[mid]) {
-                return mid;
+                return (mid + 1) % arr.length;
             } else if (target < arr[mid]) {
                 end = mid - 1;
             } else {
                 start = mid + 1;
             }
         }
-        return end;
+        return start % arr.length;
     }
 }
